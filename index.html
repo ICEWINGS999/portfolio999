@@ -1,0 +1,726 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Isaac — Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0A0A0A;
+      --white: #F5F5F0;
+      --accent: #FF4D00;
+      --accent2: #FFD600;
+      --grey: #1A1A1A;
+      --muted: #888;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font…
+[13:29, 23/06/2026] Ice: https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap
+[14:18, 23/06/2026] Ally Lottie: thanks
+[20:59, 23/06/2026] Ice: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Isaac — Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0A0A0A;
+      --white: #F5F5F0;
+      --accent: #FF4D00;
+      --accent2: #FFD600;
+      --grey: #1A1A1A;
+      --muted: #888;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 5% 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 9vw, 8rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -2px;
+      max-width: 900px;
+    }
+
+    .hero-headline .line-accent {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-headline .line-accent::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--accent2);
+      z-index: -1;
+    }
+
+    .hero-sub {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: transform 0.15s, opacity 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid #444;
+    }
+
+    .btn-outline:hover { border-color: var(--white); }
+
+    /* big background number */
+    .hero-bg-number {
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(12rem, 25vw, 22rem);
+      font-weight: 800;
+      color: #111;
+      user-select: none;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 5%;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 3rem;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: #222;
+      margin-bottom: 4rem;
+    }
+
+    /* ── ABOUT ── */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: #aaa;
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .about-text p strong { color: var(--white); }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-box {
+      background: var(--grey);
+      border: 1px solid #2a2a2a;
+      padding: 1.5rem;
+      border-radius: 4px;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--grey); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      border: 1px solid #2e2e2e;
+      padding: 1.5rem;
+      border-radius: 4px;
+      background: var(--black);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .skill-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      border: 1px solid #222;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--grey);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .project-thumb {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    }
+
+    .project-thumb-placeholder {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      background: linear-gradient(135deg, #111 0%, #1e1e1e 100%);
+      border-bottom: 2px solid var(--accent);
+      letter-spacing: -0.5px;
+    }
+
+    .project-body { padding: 1.5rem; }
+
+    .project-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-tech {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+
+    .tech-badge {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid #333;
+      border-radius: 2px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-link {
+      font-size: 0.85rem;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+
+    .project-link:hover { color: var(--accent); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--grey); }
+
+    .contact-inner {
+      max-width: 600px;
+    }
+
+    .contact-inner p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid #2e2e2e;
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--white);
+      background: var(--black);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .contact-item:hover {
+      border-color: var(--accent);
+      transform: translateX(6px);
+    }
+
+    .contact-icon { font-size: 1.3rem; }
+
+    .contact-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .contact-value {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 5%;
+      border-top: 1px solid #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    footer span { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      #about .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-bg-number { display: none; }
+
+      nav { padding: 1rem 5%; }
+
+      .nav-links { gap: 1.2rem; }
+
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── SCROLL FADE IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#hero">Isaac<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-number">01</div>
+    <span class="hero-tag">Available for work</span>
+    <h1 class="hero-headline">
+      I Build<br/>
+      <span class="line-accent">Websites</span><br/>
+      That Work.
+    </h1>
+    <p class="hero-sub">
+      Hi, I'm Isaac — a web developer based in Nigeria. I turn ideas into clean, functional websites that make an impact.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">See My Work</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="divider"></div>
+    <p class="section-label">Who I Am</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <p>
+          I'm <strong>Isaac</strong>, a self-taught web developer passionate about building things on the internet. I started from scratch, learning HTML, CSS, and JavaScript, and I've been growing ever since.
+        </p>
+        <p>
+          I've already launched a real multi-page website — <strong>Rap Campus</strong> — a hip-hop themed platform hosted live on GitHub Pages. That's just the beginning.
+        </p>
+        <p>
+          I build fast, clean, and responsive websites. Whether you're a business, artist, or brand — I can bring your idea to life online.
+        </p>
+        <a href="#contact" class="btn btn-primary" style="margin-top:1rem;">Let's Work Together</a>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-number">1+</div>
+          <div class="stat-label">Live Projects</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Technologies</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Passion</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">NG</div>
+          <div class="stat-label">Based in Nigeria</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="divider"></div>
+    <p class="section-label">What I Know</p>
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid fade-in">
+      <div class="skill-card">
+        <div class="skill-icon">🧱</div>
+        <div class="skill-name">HTML5</div>
+        <div class="skill-desc">Semantic markup, page structure, accessibility basics</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <div class="skill-name">CSS3</div>
+        <div class="skill-desc">Responsive design, Flexbox, Grid, animations</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-desc">DOM manipulation, interactivity, dynamic content</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🐙</div>
+        <div class="skill-name">GitHub</div>
+        <div class="skill-desc">Version control, GitHub Pages deployment</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📱</div>
+        <div class="skill-name">Responsive Design</div>
+        <div class="skill-desc">Mobile-first layouts that work on any screen</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔗</div>
+        <div class="skill-name">API Integration</div>
+        <div class="skill-desc">Third-party integrations like WhatsApp click-to-chat</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="divider"></div>
+    <p class="section-label">What I've Built</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid fade-in">
+      <div class="project-card">
+        <div class="project-thumb-placeholder">RAP CAMPUS</div>
+        <div class="project-body">
+          <div class="project-tag">Music / Culture</div>
+          <div class="project-title">Rap Campus</div>
+          <p class="project-desc">
+            A multi-page hip-hop themed website featuring members, battles, music, and a contact section. Built from scratch and deployed live on GitHub Pages.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">GitHub Pages</span>
+          </div>
+          <a href="https://ICEWINGS999.github.io" target="_blank" class="project-link">View Live Site →</a>
+        </div>
+      </div>
+
+      <!-- Placeholder for future projects -->
+      <div class="project-card" style="opacity:0.4; pointer-events:none;">
+        <div class="project-thumb-placeholder" style="color:#444; border-color:#222;">COMING SOON</div>
+        <div class="project-body">
+          <div class="project-tag">Next Project</div>
+          <div class="project-title">In Progress...</div>
+          <p class="project-desc">More projects coming soon. Currently building and learning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="divider"></div>
+    <p class="section-label">Work With Me</p>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-inner fade-in">
+      <p>
+        Got a project in mind? Need a website for your business, brand, or idea? I'm available and ready to build. Reach out and let's talk.
+      </p>
+      <div class="contact-links">
+        <a href="https://wa.me/234XXXXXXXXXX" target="_blank" class="contact-item">
+          <span class="contact-icon">💬</span>
+          <div>
+            <div class="contact-label">WhatsApp Number</div>
+            <div class="contact-value">Chat with me directly:09027473986</div>
+          </div>
+        </a>
+        <a href="mailto:your@email.com" class="contact-item">
+          <span class="contact-icon">📧</span>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">icewings155@email.com</div>
+          </div>
+        </a>
+        <a href="https://github.com/ICEWINGS999" target="_blank" class="contact-item">
+          <span class="contact-icon">🐙</span>
+          <div>
+            <div class="contact-label">GitHub</div>
+            <div class="contact-value">github.com/ICEWINGS999</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 <span>Isaac</span>. All rights reserved.</p>
+    <p>Built with <span>HTML · CSS · JS</span></p>
+  </footer>
+
+  <script>
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
